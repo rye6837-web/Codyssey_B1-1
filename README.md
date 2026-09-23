@@ -12,6 +12,14 @@
 
 ---
 
+## 📸 실행 화면 미리보기 (Screenshots)
+
+| 데스크톱 라이트 모드 | 데스크톱 다크 모드 | 모바일 뷰 (375px) |
+| :---: | :---: | :---: |
+| ![데스크톱 라이트](images/screenshots/desktop_light.png) | ![데스크톱 다크](images/screenshots/desktop_dark.png) | ![모바일 뷰](images/screenshots/mobile.png) |
+
+---
+
 ## 🛠️ 사용 기술 및 개발 환경
 
 - **마크업**: 순수 HTML5 (시맨틱 태그: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
