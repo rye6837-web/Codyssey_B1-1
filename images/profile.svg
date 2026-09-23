@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8EEF5"/>
+      <stop offset="100%" stop-color="#CFDCE8"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D3142"/>
+      <stop offset="100%" stop-color="#1A1C24"/>
+    </linearGradient>
+    <linearGradient id="clothesGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A506B"/>
+      <stop offset="100%" stop-color="#1C2541"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- 원형 배경 (카카오톡 프로필 스타일) -->
+  <circle cx="160" cy="160" r="150" fill="url(#bgGrad)"/>
+
+  <g filter="url(#softShadow)">
+    <!-- 옷 (단정한 네이비 스웨터) -->
+    <path d="M70 290 C70 240, 110 220, 160 220 C210 220, 250 240, 250 290 L250 310 L70 310 Z" fill="url(#clothesGrad)"/>
+    
+    <!-- 옷 깃 & 이너 티셔츠 -->
+    <path d="M135 220 Q160 245 185 220 Z" fill="#FFFFFF"/>
+    
+    <!-- 목 -->
+    <path d="M138 180 L138 225 Q160 235 182 225 L182 180 Z" fill="#F7D3BA"/>
+    <!-- 목 그림자 -->
+    <path d="M138 180 Q160 200 182 180 Q160 190 138 180 Z" fill="#E8B89B"/>
+
+    <!-- 머리 뒤쪽/귀 -->
+    <circle cx="106" cy="148" r="14" fill="#F7D3BA"/>
+    <circle cx="214" cy="148" r="14" fill="#F7D3BA"/>
+    <circle cx="106" cy="148" r="8" fill="#E8B89B"/>
+    <circle cx="214" cy="148" r="8" fill="#E8B89B"/>
+
+    <!-- 얼굴 윤곽 -->
+    <rect x="112" y="100" width="96" height="96" rx="46" fill="#FCE2D0"/>
+    
+    <!-- 머리카락 (단정하고 깔끔한 현대적 가르마 스타일) -->
+    <path d="M102 120 C100 80, 130 52, 165 52 C205 52, 222 78, 220 120 C212 98, 195 86, 162 86 C135 86, 118 100, 102 120 Z" fill="url(#hairGrad)"/>
+    <path d="M102 110 C106 100, 115 88, 130 82 C120 92, 115 106, 112 120 Z" fill="url(#hairGrad)"/>
+
+    <!-- 눈썹 -->
+    <path d="M124 126 Q136 122 146 126" stroke="#2D3142" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+    <path d="M174 126 Q184 122 196 126" stroke="#2D3142" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+    <!-- 눈 -->
+    <circle cx="136" cy="142" r="4.5" fill="#1C2541"/>
+    <circle cx="184" cy="142" r="4.5" fill="#1C2541"/>
+    <circle cx="138" cy="140" r="1.5" fill="#FFFFFF"/>
+    <circle cx="186" cy="140" r="1.5" fill="#FFFFFF"/>
+
+    <!-- 안경 (세련된 검은색 메탈/뿔테 스타일) -->
+    <!-- 왼쪽 안경알 -->
+    <rect x="120" y="130" width="32" height="24" rx="7" fill="rgba(255,255,255,0.25)" stroke="#1C2541" stroke-width="3.2"/>
+    <!-- 오른쪽 안경알 -->
+    <rect x="168" y="130" width="32" height="24" rx="7" fill="rgba(255,255,255,0.25)" stroke="#1C2541" stroke-width="3.2"/>
+    <!-- 안경 브릿지(코걸이) -->
+    <path d="M152 140 Q160 137 168 140" stroke="#1C2541" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <!-- 안경 다리 -->
+    <line x1="120" y1="139" x2="106" y2="142" stroke="#1C2541" stroke-width="2.8" stroke-linecap="round"/>
+    <line x1="200" y1="139" x2="214" y2="142" stroke="#1C2541" stroke-width="2.8" stroke-linecap="round"/>
+    <!-- 안경 렌즈 반사광 -->
+    <line x1="125" y1="134" x2="135" y2="134" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="173" y1="134" x2="183" y2="134" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/>
+
+    <!-- 코 -->
+    <path d="M158 148 Q161 155 163 155" stroke="#E8B89B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- 은은하고 따뜻한 미소의 입 -->
+    <path d="M148 168 Q160 176 172 168" stroke="#D17B68" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>

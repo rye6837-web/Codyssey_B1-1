@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="코디세이 2기 마리너 김남섭의 반응형 포트폴리오 웹사이트입니다. 순수 HTML, CSS, JavaScript로 구현되었습니다.">
+  <title>김남섭 | 포트폴리오 (코디세이 2기 마리너)</title>
+
+  <!-- Google Fonts: Inter & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 아이콘 (과제 허용 외부 리소스) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 외부 스타일시트 연결 -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 자바스크립트 연결 (defer 속성으로 HTML 파싱 완료 후 실행) -->
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <!-- 헤더 & 네비게이션 -->
+  <header id="header" class="site-header">
+    <nav class="nav-container" aria-label="메인 네비게이션">
+      <!-- 로고 -->
+      <a href="#hero" class="nav-logo" id="navLogo">
+        <span class="logo-accent">Namsup</span>.dev
+      </a>
+
+      <!-- 데스크톱 & 모바일 네비게이션 링크 -->
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#learning" class="nav-link">Learning</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- 유틸리티 버튼 영역 (다크 모드 토글 & 모바일 햄버거 버튼) -->
+      <div class="nav-actions">
+        <!-- 다크 모드 토글 버튼 -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="다크 모드 전환">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+
+        <!-- 모바일 햄버거 메뉴 버튼 -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="메뉴 열기/닫기" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent">
+    <!-- 1. Hero 섹션 -->
+    <section id="hero" class="hero-section section-observe">
+      <div class="container hero-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Codyssey Mariner 2nd</span>
+        </div>
+        <h1 class="hero-title">
+          안녕하세요! <br>
+          <span class="highlight">김남섭</span>입니다.
+        </h1>
+        <!-- 타자기 타이핑 효과가 적용될 동적 문구 -->
+        <p class="hero-typing-wrapper">
+          <span id="typingText" class="typing-text"></span>
+          <span class="typing-cursor" aria-hidden="true">|</span>
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fa-solid fa-code"></i> 프로젝트 둘러보기
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fa-regular fa-envelope"></i> 연락하기
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About 섹션 -->
+    <section id="about" class="about-section section-observe">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">About Me</span>
+          <h2 class="section-title">기초를 단단하게, 항해를 즐겁게</h2>
+        </div>
+        
+        <article class="about-card">
+          <div class="about-avatar-wrapper">
+            <img src="images/profile.svg" alt="김남섭 프로필 아바타 (안경을 쓴 단정한 일러스트)" class="about-avatar" width="220" height="220">
+            <div class="avatar-status-badge">
+              <i class="fa-solid fa-compass"></i> Mariner 2nd
+            </div>
+          </div>
+          
+          <div class="about-content">
+            <h3 class="about-greeting">"원리를 알고 만드는 코드는 흔들리지 않습니다."</h3>
+            <p class="about-desc">
+              코디세이 2기 마리너로 선발되어 웹 개발의 핵심 기초를 집중적으로 체득하고 있습니다.
+            </p>
+            <p class="about-desc">
+              단순히 프레임워크를 따라 쓰는 것을 넘어, <strong>DOM 조작</strong>과 <strong>비동기 통신</strong>을 직접 손으로 구현하며 웹의 동작 메커니즘을 온전히 내 것으로 만들고 있습니다.
+            </p>
+            <p class="about-desc">
+              꾸준한 기록과 실천으로 동료들의 성장을 돕고 팀에 의미 있는 기여를 하는 개발자가 되는 것이 저의 목표입니다.
+            </p>
+
+            <div class="about-info-grid">
+              <div class="info-item">
+                <span class="info-label">이름</span>
+                <span class="info-value">김남섭</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">소속</span>
+                <span class="info-value">코디세이 2기 마리너</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">이메일</span>
+                <span class="info-value">rye6837@gmail.com</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">GitHub</span>
+                <span class="info-value">@rye6837-web</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Learning & Skills 섹션 -->
+    <section id="learning" class="skills-section section-observe">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Learning & Skills</span>
+          <h2 class="section-title">현재 탐구하고 있는 기술들</h2>
+          <p class="section-desc">탄탄한 기초 위에 실무 감각을 더해가고 있는 학습 스택입니다.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- HTML5 -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-brands fa-html5 skill-icon-html"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">HTML5</h3>
+              <p class="skill-badge">Core Foundation</p>
+              <p class="skill-detail">시맨틱 마크업과 웹 표준, 접근성을 고려한 문서 구조화</p>
+            </div>
+          </div>
+
+          <!-- CSS3 -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-brands fa-css3-alt skill-icon-css"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">CSS3</h3>
+              <p class="skill-badge">Responsive & Layout</p>
+              <p class="skill-detail">Flexbox, Grid, CSS 변수 및 모바일 퍼스트 반응형 디자인</p>
+            </div>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-brands fa-square-js skill-icon-js"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">JavaScript (ES6+)</h3>
+              <p class="skill-badge">Dynamic Web</p>
+              <p class="skill-detail">DOM 조작, 이벤트 제어, async/await 비동기 처리 및 상태 관리</p>
+            </div>
+          </div>
+
+          <!-- Git/GitHub -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-brands fa-git-alt skill-icon-git"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">Git & GitHub</h3>
+              <p class="skill-badge">Version Control</p>
+              <p class="skill-detail">체계적인 커밋 관리, 협업 브랜치 전략 및 GitHub Pages 배포</p>
+            </div>
+          </div>
+
+          <!-- Python -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-brands fa-python skill-icon-python"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">Python</h3>
+              <p class="skill-badge">Data & Automation</p>
+              <p class="skill-detail">데이터 구조 분석 및 다양한 시뮬레이션 연계 프로그래밍</p>
+            </div>
+          </div>
+
+          <!-- Isaac Sim -->
+          <div class="skill-card">
+            <div class="skill-icon-box" aria-hidden="true">
+              <i class="fa-solid fa-microchip skill-icon-sim"></i>
+            </div>
+            <div class="skill-info">
+              <h3 class="skill-title">Isaac Sim</h3>
+              <p class="skill-badge">Simulation Platform</p>
+              <p class="skill-detail">NVIDIA Omniverse 기반 가상 환경 및 로봇 시뮬레이션 탐구</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Projects 섹션 (GitHub API 연동) -->
+    <section id="projects" class="projects-section section-observe">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Projects (Live API)</span>
+          <h2 class="section-title">GitHub 연동 저장소</h2>
+          <p class="section-desc">
+            GitHub REST API를 통해 실시간으로 불러오는 저장소 목록입니다.
+          </p>
+        </div>
+
+        <!-- 보너스 과제: 언어별 필터링 버튼 영역 -->
+        <div class="filter-controls" id="filterControls" role="group" aria-label="프로젝트 언어 필터">
+          <button type="button" class="filter-btn active" data-filter="all">전체보기</button>
+          <!-- 자바스크립트로 존재하는 언어 버튼이 동적으로 추가되거나 기본 버튼 활성화 -->
+        </div>
+
+        <!-- 프로젝트 카드 렌더링 컨테이너 -->
+        <div class="projects-container" id="projectsContainer" aria-live="polite">
+          <!-- JavaScript에서 상태(로딩/성공/에러/빈데이터)에 따라 동적으로 마크업 주입 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact 섹션 -->
+    <section id="contact" class="contact-section section-observe">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title">함께 성장할 준비가 되어 있습니다</h2>
+          <p class="section-desc">질문이나 피드백, 협업 제안은 언제나 환영합니다.</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- 연락처 정보 카드 -->
+          <div class="contact-card">
+            <h3 class="contact-card-title">연락처 정보</h3>
+            <p class="contact-card-desc">아래 이메일이나 메신저로도 편하게 연락주실 수 있습니다.</p>
+
+            <ul class="contact-details">
+              <li class="contact-detail-item">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <div>
+                  <span class="detail-name">이메일</span>
+                  <a href="mailto:rye6837@gmail.com" class="detail-link">rye6837@gmail.com</a>
+                </div>
+              </li>
+              <li class="contact-detail-item">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <div>
+                  <span class="detail-name">GitHub</span>
+                  <a href="https://github.com/rye6837-web" target="_blank" rel="noopener noreferrer" class="detail-link">github.com/rye6837-web</a>
+                </div>
+              </li>
+              <li class="contact-detail-item">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <div>
+                  <span class="detail-name">활동 지역</span>
+                  <span class="detail-link">대한민국 서울 / 원격</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 문의 폼 (유효성 검사 필수) -->
+          <form class="contact-form" id="contactForm" novalidate>
+            <!-- 폼 전송 성공/상태 알림 피드백 -->
+            <div class="form-feedback" id="formFeedback" role="alert" aria-hidden="true"></div>
+
+            <!-- 이름 입력 필드 -->
+            <div class="form-group" id="groupName">
+              <label for="userName" class="form-label">
+                이름 <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="userName" 
+                name="userName" 
+                class="form-input" 
+                placeholder="성함을 입력해주세요" 
+                required 
+                autocomplete="name"
+              >
+              <span class="error-message" id="nameError" aria-live="polite"></span>
+            </div>
+
+            <!-- 이메일 입력 필드 -->
+            <div class="form-group" id="groupEmail">
+              <label for="userEmail" class="form-label">
+                이메일 <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="userEmail" 
+                name="userEmail" 
+                class="form-input" 
+                placeholder="example@domain.com" 
+                required 
+                autocomplete="email"
+              >
+              <span class="error-message" id="emailError" aria-live="polite"></span>
+            </div>
+
+            <!-- 메시지 입력 필드 -->
+            <div class="form-group" id="groupMessage">
+              <label for="userMessage" class="form-label">
+                메시지 <span class="required-star" aria-hidden="true">*</span>
+              </label>
+              <textarea 
+                id="userMessage" 
+                name="userMessage" 
+                class="form-textarea" 
+                rows="5" 
+                placeholder="남기실 말씀을 작성해주세요" 
+                required
+              ></textarea>
+              <span class="error-message" id="messageError" aria-live="polite"></span>
+            </div>
+
+            <!-- 제출 버튼 -->
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              <i class="fa-regular fa-paper-plane"></i> 메시지 보내기
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 맨 위로 가기 스크롤 탑 버튼 -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="페이지 맨 위로 이동">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- 6. Footer 섹션 -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">&copy; 2026 <strong class="footer-name">김남섭 (Namsup Kim)</strong>. All rights reserved.</p>
+        <p class="footer-subtext">Designed & Built with Pure HTML5, CSS3, Vanilla JavaScript</p>
+      </div>
+
+      <!-- 소셜 링크 영역 -->
+      <ul class="footer-social-links" aria-label="소셜 미디어 링크">
+        <li>
+          <a href="https://github.com/rye6837-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub 프로필" class="social-link">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://tistory.com" target="_blank" rel="noopener noreferrer" aria-label="티스토리 블로그" class="social-link">
+            <i class="fa-solid fa-blog"></i>
+            <span>Tistory</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn 프로필" class="social-link">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
