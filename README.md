@@ -7,8 +7,8 @@
 
 ## 🔗 배포 및 저장소 링크
 
-- **배포 URL (GitHub Pages)**: `https://rye6837-web.github.io/Codyssey_B1-1/` *(배포 후 활성화)*
-- **GitHub 저장소 URL**: `https://github.com/rye6837-web/Codyssey_B1-1`
+- **배포 URL (GitHub Pages)**: [https://rye6837-web.github.io/Codyssey_B1-1/](https://rye6837-web.github.io/Codyssey_B1-1/)
+- **GitHub 저장소 URL**: [https://github.com/rye6837-web/Codyssey_B1-1](https://github.com/rye6837-web/Codyssey_B1-1)
 
 ---
 
