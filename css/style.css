@@ -1203,3 +1203,209 @@ section {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* --------------------------------------------------------------------------
+   14. 3D 인터랙션 스타일 (Hero 패럴랙스, 3D 큐브, 카드 틸트)
+   - 순수 CSS3 3D Transform & Perspective 활용
+   -------------------------------------------------------------------------- */
+
+/* 1) Hero 섹션 3D 뎁스 패럴랙스 */
+.hero-section {
+  perspective: 1200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-3d-grid-bg {
+  position: absolute;
+  inset: -60px;
+  background-image: 
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  transform: translateZ(-100px);
+  pointer-events: none;
+  transition: transform 0.15s ease-out;
+  z-index: 1;
+}
+
+.hero-3d-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%);
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+  z-index: 2;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 3;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+}
+
+/* 2) Skills 섹션: 3D 회전 큐브 (Cube) - 라이트 모드 (화사하고 깨끗한 글래스모피즘) */
+.cube-showcase-container {
+  margin: 30px auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius-lg);
+  max-width: 600px;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.cube-showcase-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cube-showcase-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
+
+.cube-stage {
+  width: 140px;
+  height: 140px;
+  perspective: 900px;
+}
+
+.interactive-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCubeAnim 14s infinite linear;
+  cursor: grab;
+  transition: transform 0.15s ease-out;
+}
+
+.interactive-cube:active {
+  cursor: grabbing;
+}
+
+.interactive-cube:hover {
+  animation-play-state: paused;
+}
+
+/* 큐브 면 - 라이트 모드 (맑은 화이트 글래스 & 브랜드 블루 테두리 & 선명한 텍스트) */
+.cube-face-item {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 2px solid var(--color-primary);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12), inset 0 0 16px rgba(37, 99, 235, 0.06);
+  user-select: none;
+}
+
+.cube-face-item i {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   다크 모드 전용 3D 스타일 ([data-theme="dark"])
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] .hero-3d-grid-bg {
+  background-image: 
+    linear-gradient(rgba(56, 189, 248, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.07) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .hero-3d-glow {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.18), rgba(96, 165, 250, 0.08) 40%, transparent 70%);
+}
+
+[data-theme="dark"] .cube-showcase-container {
+  background: linear-gradient(180deg, #151C2C 0%, #0B0F19 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .cube-face-item {
+  background: rgba(14, 22, 38, 0.92);
+  color: #F8FAFC;
+  box-shadow: inset 0 0 18px var(--color-primary-light);
+}
+
+/* 6면 정육면체 좌표 (140px / 2 = 70px) */
+.face-front  { transform: rotateY(0deg) translateZ(70px); }
+.face-back   { transform: rotateY(180deg) translateZ(70px); }
+.face-right  { transform: rotateY(90deg) translateZ(70px); }
+.face-left   { transform: rotateY(-90deg) translateZ(70px); }
+.face-top    { transform: rotateX(90deg) translateZ(70px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(70px); }
+
+@keyframes rotateCubeAnim {
+  0%   { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* 3) 3D 카드 틸트 (Tilt) & 글레어 (반사광) */
+.project-card,
+.skill-card,
+.about-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-3d-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.22), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+  z-index: 10;
+}
+
+[data-theme="dark"] .card-3d-glare {
+  background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.25), transparent 65%);
+}
+
+.project-card-header,
+.project-desc,
+.project-meta,
+.skill-icon-box,
+.skill-info {
+  transform: translateZ(25px);
+  position: relative;
+  z-index: 2;
+}
+
+/* 모바일 환경에서는 3D 효과 완화 (스크롤 방해 방지) */
+@media (max-width: 768px) {
+  .hero-section {
+    perspective: none;
+  }
+  .interactive-cube {
+    animation-duration: 20s;
+  }
+}

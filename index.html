@@ -14,11 +14,11 @@
   <!-- Font Awesome 아이콘 (과제 허용 외부 리소스) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- 외부 스타일시트 연결 -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- 외부 스타일시트 연결 (캐시 방지 파라미터 적용) -->
+  <link rel="stylesheet" href="css/style.css?v=3d-2">
 
-  <!-- 자바스크립트 연결 (defer 속성으로 HTML 파싱 완료 후 실행) -->
-  <script defer src="js/main.js"></script>
+  <!-- 자바스크립트 연결 (캐시 방지 파라미터 적용) -->
+  <script defer src="js/main.js?v=3d-1"></script>
 </head>
 <body>
   <!-- 헤더 & 네비게이션 -->
@@ -58,6 +58,10 @@
   <main id="mainContent">
     <!-- 1. Hero 섹션 -->
     <section id="hero" class="hero-section section-observe">
+      <!-- 3D 배경 입체 격자 및 네온 빛망울 (마우스 움직임에 반응) -->
+      <div class="hero-3d-grid-bg" aria-hidden="true"></div>
+      <div class="hero-3d-glow" aria-hidden="true"></div>
+
       <div class="container hero-container">
         <div class="hero-badge">
           <span class="badge-dot"></span>
@@ -142,6 +146,24 @@
           <span class="section-tag">Learning & Skills</span>
           <h2 class="section-title">현재 탐구하고 있는 기술들</h2>
           <p class="section-desc">탄탄한 기초 위에 실무 감각을 더해가고 있는 학습 스택입니다.</p>
+        </div>
+
+        <!-- 3D 회전 큐브 쇼케이스 위젯 (드래그 회전 가능) -->
+        <div class="cube-showcase-container">
+          <div class="cube-showcase-title">
+            <i class="fa-solid fa-cube"></i> 3D Tech Stack Cube (Isaac Sim & Web Core)
+          </div>
+          <p class="cube-showcase-sub">마우스로 큐브를 직접 드래그하여 회전시켜 보세요.</p>
+          <div class="cube-stage">
+            <div class="interactive-cube" id="interactiveCube">
+              <div class="cube-face-item face-front"><i class="fa-solid fa-microchip"></i>Isaac Sim</div>
+              <div class="cube-face-item face-back"><i class="fa-brands fa-python"></i>Python</div>
+              <div class="cube-face-item face-right"><i class="fa-brands fa-square-js"></i>Vanilla JS</div>
+              <div class="cube-face-item face-left"><i class="fa-brands fa-html5"></i>HTML5</div>
+              <div class="cube-face-item face-top"><i class="fa-brands fa-css3-alt"></i>CSS3</div>
+              <div class="cube-face-item face-bottom"><i class="fa-brands fa-git-alt"></i>Git</div>
+            </div>
+          </div>
         </div>
 
         <div class="skills-grid">

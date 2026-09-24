@@ -309,6 +309,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }).join('');
 
       container.innerHTML = cardsHtml;
+
+      // 동적으로 렌더링된 프로젝트 카드에 3D 마우스 틸트 효과 장착
+      const projectCards = container.querySelectorAll('.project-card');
+      projectCards.forEach((card) => applyTiltEffect(card));
     };
 
     // 필터 버튼 렌더링 함수
@@ -493,6 +497,149 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // --------------------------------------------------------------------------
+  // 9. [3D 기능] 마우스 3D 틸트(Tilt) & 글레어(반사광) 효과
+  // --------------------------------------------------------------------------
+  const applyTiltEffect = (element) => {
+    if (!element || element.dataset.tiltInit === 'true') return;
+    element.dataset.tiltInit = 'true';
+
+    // 반사광(Glare) 레이어 동적 생성
+    let glare = element.querySelector('.card-3d-glare');
+    if (!glare) {
+      glare = document.createElement('div');
+      glare.className = 'card-3d-glare';
+      element.appendChild(glare);
+    }
+
+    element.addEventListener('mousemove', (e) => {
+      // 모바일 환경은 터치 스크롤 편의를 위해 틸트 비활성화
+      if (window.innerWidth < 768) return;
+
+      const rect = element.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 12;
+
+      element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) scale(1.02)`;
+      
+      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.28), transparent 60%)`;
+    });
+
+    element.addEventListener('mouseleave', () => {
+      element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+      glare.style.opacity = '0';
+    });
+  };
+
+  const initCardTilt3D = () => {
+    // 정적 카드들(기술 스택 카드, 자기소개 카드)에 3D 틸트 적용
+    const staticCards = document.querySelectorAll('.skill-card, .about-card');
+    staticCards.forEach((card) => applyTiltEffect(card));
+  };
+
+  // --------------------------------------------------------------------------
+  // 10. [3D 기능] Hero 섹션 3D 뎁스 패럴랙스
+  // --------------------------------------------------------------------------
+  const initHeroParallax3D = () => {
+    const heroSection = document.querySelector('#hero');
+    const heroGridBg = document.querySelector('.hero-3d-grid-bg');
+    const heroGlow = document.querySelector('.hero-3d-glow');
+    const heroContainer = document.querySelector('.hero-container');
+
+    if (!heroSection || !heroContainer) return;
+
+    heroSection.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 768) return;
+
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      if (heroGridBg) {
+        heroGridBg.style.transform = `translate(${x * -35}px, ${y * -35}px)`;
+      }
+      if (heroGlow) {
+        heroGlow.style.transform = `translate(${x * 60}px, ${y * 60}px)`;
+      }
+      heroContainer.style.transform = `rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateZ(10px)`;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      if (heroGridBg) heroGridBg.style.transform = 'translate(0, 0)';
+      if (heroGlow) heroGlow.style.transform = 'translate(0, 0)';
+      heroContainer.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  };
+
+  // --------------------------------------------------------------------------
+  // 11. [3D 기능] 3D 회전 큐브 (Cube) 드래그 인터랙션
+  // --------------------------------------------------------------------------
+  const initCube3D = () => {
+    const cube = document.querySelector('#interactiveCube');
+    if (!cube) return;
+
+    let isDragging = false;
+    let startX, startY;
+    let curX = 0, curY = 0;
+    let autoResumeTimer = null;
+
+    // 1.5초(1~2초 사이) 동안 아무 조작이 없으면 자동으로 회전 재개하는 함수
+    const scheduleAutoResume = () => {
+      clearTimeout(autoResumeTimer);
+      autoResumeTimer = setTimeout(() => {
+        // 드래그했던 각도에서 자연스럽게 회전 애니메이션으로 복귀
+        cube.style.transition = 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
+        cube.style.transform = ''; // 인라인 각도를 초기화하여 CSS 애니메이션에 인계
+        
+        setTimeout(() => {
+          cube.style.transition = '';
+          cube.style.animation = 'rotateCubeAnim 14s infinite linear';
+        }, 800);
+      }, 1500); // 1.5초 대기
+    };
+
+    cube.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      clearTimeout(autoResumeTimer);
+      startX = e.clientX;
+      startY = e.clientY;
+      cube.style.transition = 'none';
+      cube.style.animation = 'none'; // 드래그 시 자동 회전 멈춤
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      curY += dx * 0.45;
+      curX -= dy * 0.45;
+      cube.style.transform = `rotateX(${curX}deg) rotateY(${curY}deg)`;
+      startX = e.clientX;
+      startY = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        scheduleAutoResume(); // 마우스를 뗀 후 1.5초 뒤 자동 회전 재개
+      }
+    });
+
+    // 마우스가 영역을 벗어났을 때도 자동 회전 예약
+    cube.addEventListener('mouseleave', () => {
+      if (!isDragging && cube.style.animation === 'none') {
+        scheduleAutoResume();
+      }
+    });
+  };
+
+  // --------------------------------------------------------------------------
   // 앱 전체 초기화 실행
   // --------------------------------------------------------------------------
   initTheme();
@@ -502,4 +649,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypingEffect();
   initGitHubProjects();
   initContactForm();
+
+  // 3D 인터랙션 기능 초기화
+  initHeroParallax3D();
+  initCube3D();
+  initCardTilt3D();
 });
