@@ -14,7 +14,7 @@
   --color-surface: #FFFFFF;
   --color-surface-hover: #F1F5F9;
   --color-surface-border: #E2E8F0;
-  
+
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
   --color-text-muted: #94A3B8;
@@ -83,7 +83,9 @@
 /* --------------------------------------------------------------------------
    2. 전역 리셋 & 기본 설정
    -------------------------------------------------------------------------- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -119,11 +121,13 @@ button {
   outline: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -326,7 +330,8 @@ section {
   transition: color var(--transition-fast);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-primary);
 }
 
@@ -468,8 +473,15 @@ section {
 }
 
 @keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .hero-subtext {
@@ -619,12 +631,29 @@ section {
   font-size: 1.8rem;
 }
 
-.skill-icon-html { color: #E34F26; }
-.skill-icon-css { color: #1572B6; }
-.skill-icon-js { color: #F7DF1E; }
-.skill-icon-git { color: #F05032; }
-.skill-icon-python { color: #3776AB; }
-.skill-icon-sim { color: #76B900; }
+.skill-icon-html {
+  color: #E34F26;
+}
+
+.skill-icon-css {
+  color: #1572B6;
+}
+
+.skill-icon-js {
+  color: #F7DF1E;
+}
+
+.skill-icon-git {
+  color: #F05032;
+}
+
+.skill-icon-python {
+  color: #3776AB;
+}
+
+.skill-icon-sim {
+  color: #76B900;
+}
 
 .skill-info {
   display: flex;
@@ -805,7 +834,9 @@ section {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .state-title {
@@ -923,7 +954,8 @@ section {
   color: var(--color-danger);
 }
 
-.form-input, .form-textarea {
+.form-input,
+.form-textarea {
   width: 100%;
   padding: 12px 16px;
   font-family: inherit;
@@ -935,18 +967,21 @@ section {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.form-input:focus, .form-textarea:focus {
+.form-input:focus,
+.form-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
-.form-input.invalid, .form-textarea.invalid {
+.form-input.invalid,
+.form-textarea.invalid {
   border-color: var(--color-danger);
   background-color: var(--color-danger-bg);
 }
 
-.form-input.invalid:focus, .form-textarea.invalid:focus {
+.form-input.invalid:focus,
+.form-textarea.invalid:focus {
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
@@ -1085,7 +1120,7 @@ section {
    13. 반응형 미디어 쿼리 (반응형 요구사항: 768px 태블릿, 1024px 데스크톱)
    ========================================================================== */
 
-/* 태블릿 (min-width: 768px) */
+/* 태블릿 (: 768px) */
 @media (min-width: 768px) {
   .section-title {
     font-size: 2.25rem;
@@ -1135,6 +1170,7 @@ section {
 
 /* 데스크톱 (min-width: 1024px) */
 @media (min-width: 1024px) {
+
   /* 데스크톱에서는 햄버거 버튼 숨기고 메뉴 직접 노출 (Flexbox 왼쪽 로고, 오른쪽 메뉴) */
   .hamburger-btn {
     display: none;
