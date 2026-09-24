@@ -36,13 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.querySelector('#themeToggleBtn');
     const themeIcon = document.querySelector('#themeIcon');
 
+    // 0) URL 쿼리 파라미터 확인 (?theme=light 또는 ?theme=dark)
+    const urlTheme = new URLSearchParams(window.location.search).get('theme');
+
     // 1) localStorage 저장된 설정 확인
     const savedTheme = localStorage.getItem('portfolio-theme');
 
     // 2) 보너스 과제: 시스템 다크 모드 감지 (prefers-color-scheme)
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (savedTheme) {
+    if (urlTheme === 'light' || urlTheme === 'dark') {
+      state.theme = urlTheme;
+    } else if (savedTheme) {
       state.theme = savedTheme;
     } else if (prefersDark) {
       state.theme = 'dark';
