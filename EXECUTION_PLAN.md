@@ -32,65 +32,66 @@ Codyssey_B1-1/
 ## 🛠️ 2단계: 단계별 구현 로드맵
 
 ### Step 1. 시맨틱 HTML 마크업 (`index.html`)
-- [ ] 의미 있는 태그(**시맨틱 태그**, Semantic Tag: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)로 전체 레이아웃 구성
-- [ ] 6개 필수 섹션 작성:
+- [x] 의미 있는 태그(**시맨틱 태그**, Semantic Tag: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)로 전체 레이아웃 구성
+- [x] 6개 필수 섹션 작성:
   1. **Hero**: 첫인사 및 대표 안내 문구, 바로가기(CTA: Call To Action) 버튼
   2. **About**: 자기소개 글과 프로필 이미지 (`alt` 대체 텍스트 필수)
   3. **Skills**: 보유 기술 스택 카드/태그 목록
   4. **Projects**: GitHub API 연동 카드가 렌더링될 컨테이너
   5. **Contact**: 문의 입력 폼(이름, 이메일, 메시지) 및 `<label for="...">` 매칭
   6. **Footer**: 저작권(Copyright), 소셜 링크
-- [ ] `<script defer src="js/main.js">` 로 자바스크립트 연결
+- [x] `<script defer src="js/main.js">` 로 자바스크립트 연결
 
 ### Step 2. CSS 스타일링 & 반응형 디자인 (`css/style.css`)
-- [ ] **CSS 변수(`:root`)**: 테마 색상, 폰트, 여백, 그림자 등 공통 디자인 토큰 선언
-- [ ] **다크 모드 변수(`[data-theme="dark"]`)**: 어두운 배경색과 텍스트 색상 정의
-- [ ] **모바일 퍼스트(Mobile-First) 설계**:
+- [x] **CSS 변수(`:root`)**: 테마 색상, 폰트, 여백, 그림자 등 공통 디자인 토큰 선언
+- [x] **다크 모드 변수(`[data-theme="dark"]`)**: 어두운 배경색과 텍스트 색상 정의
+- [x] **모바일 퍼스트(Mobile-First) 설계**:
   - 기본 스타일은 모바일 화면 기준으로 작성
   - 태블릿(`@media (min-width: 768px)`) 및 데스크톱(`@media (min-width: 1024px)`) 미디어 쿼리 적용
-- [ ] **Flexbox & Grid**:
+- [x] **Flexbox & Grid**:
   - 네비게이션: `display: flex` (왼쪽 로고, 오른쪽 메뉴/다크모드 버튼)
   - 프로젝트 카드: `display: grid` + `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))`
-- [ ] **시각 효과**: 버튼 및 카드에 `transition`, `hover`, `box-shadow` 적용
+- [x] **시각 효과**: 버튼 및 카드에 `transition`, `hover`, `box-shadow` 적용
 
 ### Step 3. JavaScript 핵심 인터랙션 (`js/main.js`)
-- [ ] **다크 모드 토글**:
+- [x] **다크 모드 토글**:
   - 클릭 시 `data-theme` 속성 전환
   - `localStorage`에 상태 저장하여 새로고침 시에도 다크 모드 유지
-- [ ] **모바일 햄버거 메뉴**:
+- [x] **모바일 햄버거 메뉴**:
   - 모바일에서 햄버거 버튼 클릭 시 메뉴 펼침/닫힘 (`classList.toggle('active')`)
-- [ ] **부드러운 스크롤**:
+- [x] **부드러운 스크롤**:
   - 네비게이션 메뉴 클릭 시 해당 섹션으로 부드럽게 스크롤 이동
-- [ ] **스크롤 제어**:
+- [x] **스크롤 제어**:
   - 스크롤 60px 이상 시 네비게이션 바 배경 스타일 변경
   - 스크롤 300px 이상 시 스크롤 맨 위로 가기(Top) 버튼 노출 및 클릭 이벤트
-- [ ] **스크롤 애니메이션**:
+- [x] **스크롤 애니메이션**:
   - `IntersectionObserver` API를 활용하여 화면에 섹션이 나타날 때 부드럽게 등장하는 페이드인 효과 (임계값 0.2)
 
 ### Step 4. 폼 유효성 검사 (Form Validation)
-- [ ] 이름, 이메일, 메시지 입력 필드의 빈 값 검사
-- [ ] 이메일 정규식(형식) 유효성 검사
-- [ ] 오류 발생 시 각 입력 필드 바로 아래에 빨간색 에러 메시지 표시
-- [ ] 전송 버튼 클릭 시 `event.preventDefault()`로 페이지 새로고침 방지 후 완료 피드백 표시
+- [x] 이름, 이메일, 메시지 입력 필드의 빈 값 검사
+- [x] 이메일 정규식(형식) 유효성 검사
+- [x] 오류 발생 시 각 입력 필드 바로 아래에 빨간색 에러 메시지 표시
+- [x] 전송 버튼 클릭 시 `event.preventDefault()`로 페이지 새로고침 방지 후 완료 피드백 표시
 
 ### Step 5. GitHub API 비동기 연동
-- [ ] 엔드포인트: `https://api.github.com/users/{본인_깃허브_아이디}/repos`
-- [ ] `fetch`와 `async/await`, `try/catch` 문법 적용
-- [ ] 4가지 UI 상태 완벽 처리:
+- [x] 엔드포인트: `https://api.github.com/users/rye6837-web/repos`
+- [x] `fetch`와 `async/await`, `try/catch` 문법 적용
+- [x] 4가지 UI 상태 완벽 처리:
   1. **로딩 상태**: 로딩 스피너 또는 "프로젝트를 불러오는 중..." 표시
   2. **성공 상태**: `array.map()`과 템플릿 리터럴(`` ` ``)을 사용해 프로젝트 카드 렌더링
   3. **에러 상태**: 네트워크 실패 또는 403 레이트 리밋 발생 시 에러 메시지 및 **[다시 시도]** 버튼 표시
   4. **빈 상태**: 등록된 저장소가 없을 경우 "표시할 프로젝트가 없습니다." 안내
 
 ### Step 6. 보너스 선택 과제 (선택)
-- [ ] 타이핑 효과: Hero 섹션의 인사말이 한 글자씩 타이핑되듯 출력되는 효과
-- [ ] 프로젝트 필터링: 프로젝트 카드를 언어별(JavaScript, Python, HTML 등)로 필터링하는 버튼
-- [ ] 시스템 다크 모드 감지: `window.matchMedia('(prefers-color-scheme: dark)')` 감지
+- [x] 타이핑 효과: Hero 섹션의 인사말이 한 글자씩 타이핑되듯 출력되는 효과
+- [x] 프로젝트 필터링: 프로젝트 카드를 언어별(JavaScript, Python, HTML 등)로 필터링하는 버튼
+- [x] 시스템 다크 모드 감지: `window.matchMedia('(prefers-color-scheme: dark)')` 감지
+- [x] 순수 CSS3/JS 3D 인터랙션: Hero 3D 뎁스 패럴랙스, 인터랙티브 3D 테크 큐브, 프로젝트 카드 3D 틸트
 
 ### Step 7. 최종 검증 및 GitHub Pages 배포
-- [ ] 모든 기능 브라우저 교차 검증 (Chrome 개발자 도구의 모바일/태블릿 시뮬레이터 활용)
-- [ ] 필수 제출물 `README.md` 작성 (프로젝트 소개, 기술 스택, 배포 링크, 스크린샷)
-- [ ] GitHub Repository 생성 및 푸시 → GitHub Pages 기능으로 웹 배포
+- [x] 모든 기능 브라우저 교차 검증 (Chrome 개발자 도구의 모바일/태블릿 시뮬레이터 활용)
+- [x] 필수 제출물 `README.md` 작성 (프로젝트 소개, 기술 스택, 배포 링크, 스크린샷)
+- [x] GitHub Repository 생성 및 푸시 → GitHub Pages 기능으로 웹 배포
 
 ---
 
