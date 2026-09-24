@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- 세련된 브랜드 블루-스카이블루 그라디언트 -->
+    <linearGradient id="nsLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <!-- 소프트 라운드 박스 그림자 필터 -->
+    <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284C7" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- 네모박스 (둥근 모서리 스퀘어) -->
+  <rect 
+    x="8" 
+    y="8" 
+    width="84" 
+    height="84" 
+    rx="22" 
+    ry="22" 
+    fill="url(#nsLogoGrad)" 
+    filter="url(#boxShadow)"
+  />
+
+  <!-- 은은한 내부 유리 테두리 하이라이트 -->
+  <rect 
+    x="8" 
+    y="8" 
+    width="84" 
+    height="84" 
+    rx="22" 
+    ry="22" 
+    fill="none" 
+    stroke="rgba(255, 255, 255, 0.45)" 
+    stroke-width="2.5" 
+  />
+
+  <!-- 대문자 NS 텍스트 (모던 산세리프 볼드) -->
+  <text 
+    x="50%" 
+    y="54%" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    fill="#FFFFFF" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Noto Sans KR', sans-serif" 
+    font-size="44" 
+    font-weight="900" 
+    letter-spacing="-1.5"
+  >NS</text>
+</svg>

@@ -285,11 +285,32 @@ section {
 }
 
 .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+  opacity: 0.92;
+}
+
+.nav-logo-img {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .logo-accent {
